@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using SportsStore.Models;
 
 namespace SportsStore
 {
@@ -22,7 +23,9 @@ namespace SportsStore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<IProductRepository, FakeProductRepository>();
             services.AddControllersWithViews();
+            services.AddMvc();  
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -37,16 +40,18 @@ namespace SportsStore
                 app.UseExceptionHandler("/Home/Error");
             }
             app.UseStaticFiles();
+            app.UseStatusCodePages();
 
             app.UseRouting();
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
+            app.UseMvc(routes =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                routes.ÌapRoute(
+                name: "default",
+                template: "{controller=Product}/{action=List}/{id?}");
+
             });
         }
     }
