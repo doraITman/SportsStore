@@ -37,8 +37,8 @@ namespace SportsStore
             app.UseStaticFiles();
             app.UseRouting();
 
-            app.UseEndpoints(endpiont =>
-            endpiont.MapControllerRoute(
+            app.UseEndpoints(endpoint =>
+            endpoint.MapControllerRoute(
                 name: "default",
                 pattern: "{controller = product}/{action = list}"
                 ));
