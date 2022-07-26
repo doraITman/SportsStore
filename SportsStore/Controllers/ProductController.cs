@@ -7,9 +7,9 @@ namespace SportsStore.Controllers
     public class ProductController : Controller
     {
         private IProductRepository repository;
-        public ProductController(IProductRepository repository)
+        public ProductController(IProductRepository repo)
         {
-            this.repository = repository;
+            repository = repo;
         }
 
         public ViewResult List()=>View(repository.Products);
