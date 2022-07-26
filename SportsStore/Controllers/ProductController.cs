@@ -4,6 +4,7 @@ using SportsStore.Models;
 
 namespace SportsStore.Controllers
 {
+    [Route("[controller]/[action]")]
     public class ProductController : Controller
     {
         private IProductRepository repository;
