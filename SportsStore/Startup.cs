@@ -42,8 +42,8 @@ namespace SportsStore
             app.UseRouting();
 
             app.UseEndpoints(endpoint => endpoint.MapControllers());
-            
-            
+
+            SeedData.EnsurePopulated(app);
         }
     }
 }

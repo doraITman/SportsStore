@@ -15,15 +15,17 @@ namespace SportsStore
     {
         public static void Main(string[] args)
         {
-            BuidWebHost(args).Run();
+            CreateHostBuilder(args).Build().Run();
         }
 
-        public static IWebHost BuidWebHost (string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-            .UseStartup<Startup>()
-            .UseDefaultServiceProvider(options => options.ValidateScopes = false)
-            
-            .Build();
-            
+        public static IHostBuilder CreateHostBuilder(string[] args) => Host.CreateDefaultBuilder(args).ConfigureWebHostDefaults(webBuilder =>
+        {
+            webBuilder.UseStartup<Startup>()
+            .UseDefaultServiceProvider(options =>
+            options.ValidateScopes = false);
+        
+        });
+
+
     }
 }
