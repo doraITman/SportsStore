@@ -1,13 +1,25 @@
-﻿
-@model IEnumerable<Product>
+﻿@{
+    Layout = "_Layout";
+}
+@model ProductListViewModel
 
 
-@foreach (var item in Model){
-<div>
-   
-<hЗ>@item.Name</hЗ>
-@item.Description
-<h4>@item.Price.ToString("c")</h4>
-
+@foreach (var item in Model.Products){
+<div class="card card-outline-primary m-1 p-1">
+    <div class="bg-danger p-1">
+        <h4>
+   @item.Name
+   <span class="badge badge-pill badge-primary" style="float:right">
+       <small>@item.Price.ToString("c") </small>
+   </span>
+   </h4>
+   </div>
+   <div class="card-text p-1">@item.Description</div>
 </div>
 }
+
+<div page-model="@Model.PageInfo" page-action="List" page-classes-enable="true"
+page-class="btn" page-class-normal="btn-secondary"
+page-class-selected="btn-primary" class="btn-group pull-right m-1">
+</div>
+
