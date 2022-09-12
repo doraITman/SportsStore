@@ -11,5 +11,10 @@ namespace SportsStore.Models
         }
 
         public IQueryable<Product> Products => context.Products;
+
+        public void Add(Product product)
+        {
+            this.Add(product);
+        }
     }
 }

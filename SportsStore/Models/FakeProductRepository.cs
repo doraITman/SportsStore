@@ -11,5 +11,10 @@ namespace SportsStore.Models
             new Product{Name = "Surf board",Price = 179},
             new Product{Name = "Running shoes", Price = 95}
         }.AsQueryable<Product>();
+
+        public void Add(Product product)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

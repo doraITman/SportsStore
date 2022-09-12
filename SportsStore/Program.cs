@@ -15,7 +15,22 @@ namespace SportsStore
     {
         public static void Main(string[] args)
         {
+            var derictory = new DirectoryInfo(@"D:\Programming\SportsStore");
+            if (!derictory.Exists)
+            {
+
+            }
+            else
+            {
+                Console.WriteLine(derictory.FullName);
+                Console.WriteLine(derictory.Name);
+                Console.WriteLine(derictory.Parent);
+                Console.WriteLine(derictory.CreationTime);
+                Console.WriteLine(derictory.LastAccessTime);
+
+            }
             CreateHostBuilder(args).Build().Run();
+            
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) => Host.CreateDefaultBuilder(args).ConfigureWebHostDefaults(webBuilder =>
